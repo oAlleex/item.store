@@ -25,4 +25,9 @@ public class User {
             inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="id")})
     private List<Role> roles;
 
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+    private ShoppingCart shoppingCart;
+
+    @OneToMany(mappedBy = "user")
+    private List<CustomerOrder> customerOrders;
 }

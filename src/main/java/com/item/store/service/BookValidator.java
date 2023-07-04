@@ -17,11 +17,7 @@ public class BookValidator {
             FieldError fieldError = new FieldError("bookDto","title","Please fill mandatory fields!");
             bindingResult.addError(fieldError);
         }
-        if (bookDto.getQuantity().isEmpty()){
-            FieldError fieldError = new FieldError("bookDto","quantity","Please fill mandatory fields!");
-            bindingResult.addError(fieldError);
-        }
-        if (Double.parseDouble(bookDto.getQuantity()) <= 0){
+        if (bookDto.getQuantity().isEmpty() || Double.parseDouble(bookDto.getQuantity()) <= 0){
             FieldError fieldError = new FieldError("bookDto","quantity","Please fill mandatory fields!");
             bindingResult.addError(fieldError);
         }

@@ -2,6 +2,7 @@ package com.item.store.mapper;
 
 import com.item.store.dto.UserDto;
 import com.item.store.entity.Role;
+import com.item.store.entity.ShoppingCart;
 import com.item.store.entity.User;
 import com.item.store.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,10 @@ public class UserMapper {
         } else {
             user.setRoles(List.of(role.get()));
         }
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setUser(user);
+        user.setShoppingCart(shoppingCart);
+
         return user;
     }
 
