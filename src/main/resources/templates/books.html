@@ -27,11 +27,15 @@
                         <p class="card-text">Description: <span th:text="${book.getDescription()}"></span></p>
                         <p class="card-text">Price: <span th:text="${book.getPrice()}"></span>$</p>
                     </div>
-
-
-                    <button style="margin-top: 10px" type="submit"
-                            class="btn btn-primary">Add to Shopping List
-                    </button>
+                    <form th:object="${chosenBookDto}" th:action="@{/book/{bookId}(bookId=${book.getId()})}"
+                          method="post">
+                        <label for="quantity">Quantity:</label>
+                        <input th:field="*{quantity}" type="number" name="quantity" id="quantity" size="2" maxlength="12"
+                               value="1" title="Quantity:" class="input-text qty">
+                        <button style="margin-top: 10px" type="submit"
+                                class="btn btn-primary">Add to Shopping List
+                        </button>
+                    </form>
                 </div>
             </td>
         </tr>
