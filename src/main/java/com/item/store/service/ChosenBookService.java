@@ -5,7 +5,7 @@ import com.item.store.entity.Book;
 import com.item.store.entity.ChosenBook;
 import com.item.store.entity.User;
 import com.item.store.repository.BookRepository;
-import com.item.store.repository.ChosenCandleRepository;
+import com.item.store.repository.ChosenBookRepository;
 import com.item.store.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Optional;
 public class ChosenBookService {
 
     @Autowired
-    ChosenCandleRepository chosenCandleRepository;
+    ChosenBookRepository chosenBookRepository;
     @Autowired
     BookRepository bookRepository;
     @Autowired
@@ -24,7 +24,7 @@ public class ChosenBookService {
 
     public void addToCart(ChosenBookDto chosenBookDto, String bookId, String email){
         ChosenBook chosenBook = buildProduct(chosenBookDto,bookId,email);
-        chosenCandleRepository.save(chosenBook);
+        chosenBookRepository.save(chosenBook);
     }
 
     private ChosenBook buildProduct(ChosenBookDto chosenBookDto, String bookId,String email){
